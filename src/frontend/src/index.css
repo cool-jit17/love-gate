@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 9999px;
+    /* Cream/warm off-white background: #F6EFEA */
+    --background: 0.962 0.014 60;
+    /* Warm gray/brown body text: #6F5B55 */
+    --foreground: 0.44 0.032 30;
+    --card: 0.962 0.014 60;
+    --card-foreground: 0.44 0.032 30;
+    --popover: 0.962 0.014 60;
+    --popover-foreground: 0.44 0.032 30;
+    /* Primary/dusty rose: #B77A7A */
+    --primary: 0.62 0.075 15;
+    --primary-foreground: 0.98 0.005 60;
+    /* Soft blush: #E7B7B7 */
+    --secondary: 0.875 0.055 15;
+    --secondary-foreground: 0.44 0.032 30;
+    --muted: 0.94 0.018 60;
+    --muted-foreground: 0.56 0.028 30;
+    /* Accent: slightly deeper rose */
+    --accent: 0.86 0.065 15;
+    --accent-foreground: 0.44 0.032 30;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.88 0.035 15;
+    --input: 0.88 0.035 15;
+    --ring: 0.62 0.075 15;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.962 0.014 60;
+    --sidebar-foreground: 0.44 0.032 30;
+    --sidebar-primary: 0.62 0.075 15;
+    --sidebar-primary-foreground: 0.98 0.005 60;
+    --sidebar-accent: 0.875 0.055 15;
+    --sidebar-accent-foreground: 0.44 0.032 30;
+    --sidebar-border: 0.88 0.035 15;
+    --sidebar-ring: 0.62 0.075 15;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+/* Floating hearts background */
+@keyframes float-heart {
+  0% {
+    transform: translateY(100vh) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.2) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+/* Falling roses */
+@keyframes fall-rose {
+  0% {
+    transform: translateY(-80px) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Gentle pulse for Yes button */
+@keyframes gentle-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.875 0.055 15 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 14px oklch(0.875 0.055 15 / 0);
+  }
+}
+
+/* Sway for corner florals */
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-5deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.06);
+  }
+}
+
+/* Heart beat for the yes page */
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.15);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+.floating-heart {
+  animation: float-heart linear infinite;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+}
+
+.falling-rose {
+  animation: fall-rose linear infinite;
+  pointer-events: none;
+  user-select: none;
+  position: fixed;
+}
+
+.yes-btn {
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.floral-sway {
+  animation: sway 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.heartbeat {
+  animation: heartbeat 1.4s ease-in-out infinite;
+  display: inline-block;
+}
